@@ -1,0 +1,31 @@
+cff-version: 1.2.0
+message: "If you use this code or these data, please cite the article below."
+title: "Disease detection of Ceratocystis wilt with leaf spectroscopy"
+type: software
+authors:
+  - family-names: Franceschini
+    given-names: Marston H. D.
+    orcid: "https://orcid.org/0000-0002-1295-4798"
+license: MIT
+repository-code: "https://github.com/mhdf/disease_detection_ceratocystis_spectroscopy"
+preferred-citation:
+  type: article
+  title: "Leaf Diffuse Reflectance Spectroscopy for Early Detection of Ceratocystis Wilt in Eucalyptus Cuttings"
+  authors:
+    - family-names: Santiago
+      given-names: Márcia I. L.
+    - family-names: Franceschini
+      given-names: Marston H. D.
+      orcid: "https://orcid.org/0000-0002-1295-4798"
+    - family-names: Del Ponte
+      given-names: Emerson M.
+    - family-names: do Amaral
+      given-names: Cibele H.
+    - family-names: Alfenas
+      given-names: Rafael F.
+  journal: Forest Pathology
+  year: 2025
+  volume: 55
+  issue: 6
+  start: e70052
+  doi: 10.1111/efp.70052

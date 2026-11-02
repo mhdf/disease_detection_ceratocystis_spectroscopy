@@ -1,0 +1,5 @@
+# Keep the data and the result tables byte for byte
+data/*.csv -text
+data/*.xz binary
+results/*.csv -text
+tests/expected/*.csv -text
