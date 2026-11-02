@@ -78,7 +78,7 @@ best_components <- sapply(PRETREATMENTS, function(pretreatment) {
     summarise(bound = mean(fbeta) - sd(fbeta))
   bounds$ncomp[which.max(bounds$bound)]
 })
-check("The PLS-DA components of Table 1 have the highest lower bound of the F1-score", identical(best_components, PLSDA_COMPONENTS))
+check("The PLS-DA components of Table 1 have the highest lower bound of the F1-score", all(best_components == PLSDA_COMPONENTS[PRETREATMENTS]))
 
 gsets <- final_sets %>% filter(method == "genetic_algorithm", leaf == "apical", target_size == 75)
 check("Final GA sets have 74, 75 and 65 bands, as described in the README",
