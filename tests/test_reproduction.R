@@ -1,7 +1,7 @@
 # Checks of this repository against the article and the original run. From the repository folder:
 #
 #   Rscript tests/test_reproduction.R            data, folds, tables and Figure 5 (about a minute)
-#   Rscript tests/test_reproduction.R --models   also refits models and compares with the original run (about an hour)
+#   Rscript tests/test_reproduction.R --models   also refits models and compares with the original run (about 15 minutes)
 
 source("R/setup.R")
 source("R/summaries.R")
@@ -85,7 +85,13 @@ check("Final GA sets have 74, 75 and 65 bands, as described in the README",
       identical(as.integer(gsets$n_bands[match(PRETREATMENTS, gsets$pretreatment)]), c(74L, 75L, 65L)))
 
 if (run_models) {
-  compare_values <- function(new, old) max(abs(as.numeric(unlist(new)) - as.numeric(unlist(old))))
+  # Precision is undefined when a fold predicts no positive plant, so missing values must coincide
+  compare_values <- function(new, old) {
+    new <- as.numeric(unlist(new))
+    old <- as.numeric(unlist(old))
+    if (!identical(is.na(new), is.na(old))) return(Inf)
+    max(abs(new - old), na.rm = TRUE)
+  }
 
   # One fold of RFE at all target sizes
   run <- list(method = "rfe", leaf = "apical", pretreatment = "SNV")
