@@ -37,5 +37,6 @@ save_figure(figure_3(read_spectra("reflect"), read_spectra("CR"), final_sets, sh
 save_figure(figure_4(shap), "figure_4.png", 14, 5)
 save_figure(figure_5(published), "figure_5.png", 9, 4)
 save_figure(figure_5(intended), "figure_5_intended.png", 9, 4)
+set.seed(1) # the points of Figure A1 are spread at random, only for visibility
 save_figure(figure_a1(severity), "figure_a1.png", 10, 6)
 cat("Tables written to", RESULTS_DIR, "and figures to", FIGURES_DIR, "\n")

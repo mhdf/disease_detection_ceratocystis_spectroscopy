@@ -135,7 +135,8 @@ figure_a1 <- function(severity) {
       geom_vline(xintercept = classes$limits, linetype = "longdash", linewidth = 0.3) +
       geom_jitter(aes(fill = factor(class, levels = 1:5)), shape = 21, size = 1.8, height = 0.15, width = 0) +
       geom_text(data = counts, aes(x = max(classes$limits), y = clone, label = paste0("n = ", n)), hjust = 1, vjust = -2.2, size = 3) +
-      scale_fill_manual(values = colours, labels = classes$labels, name = NULL, drop = FALSE) +
+      scale_fill_manual(values = colours, labels = classes$labels, name = NULL, drop = FALSE,
+                        guide = if (inoculation_label == "no") "none" else guide_legend(nrow = 1)) +
       scale_x_continuous(breaks = axis_breaks, labels = sprintf("%.2f", axis_breaks)) +
       labs(title = title, subtitle = if (inoculation_label == "no") "[Non-inoculated]" else "[Inoculated]", x = "Severity [%]", y = NULL) +
       theme_article(9)
@@ -143,7 +144,7 @@ figure_a1 <- function(severity) {
   build <- function(times, title) {
     table <- severity %>% filter(time %in% times)
     classes <- severity_classes(table)
-    (panel(table, title, "no", classes) / panel(table, title, "yes", classes)) + plot_layout(guides = "collect")
+    panel(table, title, "no", classes) / panel(table, title, "yes", classes)
   }
   (build(PRE_SYMPTOM_TIMES, "Pre-visual symptoms: 12 to 60 hours after inoculation") |
     build(POST_SYMPTOM_TIMES, "Post-visual symptoms: 30 to 40 days after inoculation")) &
