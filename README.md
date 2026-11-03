@@ -87,7 +87,7 @@ The random seeds of the original run are kept, so the same results are obtained,
 | `shap_importance.csv` | Importance of the wavelengths, in percent of the total of each model |
 | `figure_5_values.csv`, `figure_5_values_intended.csv` | Values of Figure 5, explained below |
 
-The original scripts also tested each candidate model on the validation plants. Those results were not used to select models or reported in the article, so they are not included.
+The original scripts also tested each candidate model on the validation plants. The selection steps in the code use only the calibration folds and the article does not report those results, so they are not included.
 
 ## Citation and license
 
@@ -105,7 +105,6 @@ Preparing this repository showed that some descriptions in the article differ fr
 |---|---|---|
 | Resampling (Section 2.3) | Spline function | `prospectr::resample2`, based on the band width (full width at half maximum): 3 nm up to 700 nm and 10 nm above |
 | Raw bands (Section 2.3) | 2150 | 2151, from 350 to 2500 nm |
-| Readings (Section 2.3) | Three per leaf, two leaves per canopy layer | From 2 to 10 per plant and canopy layer, 6 in 67 of 231 cases, shown in `n_readings` |
 | RFE (Section 2.4) | One feature removed at a time | Wavelengths ranked once and reduced to fixed sizes (411, 200, 100, 75, 50, 25, 10 and 5), of which 25 to 100 were considered |
 | GA mutation (Section 2.4) | 0.10 for each gene | 0.10 for each candidate (`pmutation` of the GA package) |
 | Target number of features (Section 2.4) | Highest lower bound of the F1-score | Chosen by the authors, as described in *How the method works* |
