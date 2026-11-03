@@ -1,6 +1,6 @@
-<div align="justify">
-
 # Disease detection of Ceratocystis wilt with leaf spectroscopy
+
+<div align="justify">
 
 Code and data to reproduce the analysis of the article:
 
@@ -10,7 +10,11 @@ The study evaluates whether leaf reflectance from 400 to 2450 nm can detect Cera
 
 All values in Tables 1, A1 and A2 of the article are reproduced by the results in this repository. Some descriptions in the article and the bars of its Figure 5 differ from what the code was intended to do, as explained at the end of this page.
 
+</div>
+
 ## How the method works
+
+<div align="justify">
 
 1. **Spectra.** The readings of each plant and canopy layer are averaged, resampled every 5 nm and used as reflectance, after Standard Normal Variate (SNV, which corrects differences in overall intensity) and after continuum removal (CR, which compares absorption features against a common baseline).
 2. **Data split.** The 77 plants are split into calibration (61) and validation (16). The calibration plants are divided again into five folds, five times, to compare models.
@@ -19,7 +23,11 @@ All values in Tables 1, A1 and A2 of the article are reproduced by the results i
 5. **Models.** RF and Support Vector Machine (SVM) models use the selected wavelengths, and Partial Least Squares Discriminant Analysis (PLS-DA) uses all wavelengths. The final models are tested on the validation plants.
 6. **Importance.** SHAP values estimate how much each wavelength contributes to the predictions.
 
+</div>
+
 ## Main results
+
+<div align="justify">
 
 Best model of each approach for the apical canopy layer. The values are for the 16 validation plants, and the value after ± is the standard deviation in the cross-validation of the calibration plants.
 
@@ -31,7 +39,11 @@ Best model of each approach for the apical canopy layer. The values are for the 
 
 The complete values are in `results/` and the figures in `figures/`.
 
+</div>
+
 ## Reproducing the results
+
+<div align="justify">
 
 Install [R](https://www.r-project.org/) 4.4 and the packages with the versions in `renv.lock`, using [renv](https://rstudio.github.io/renv/) (`renv::restore()`). Run the scripts from the repository folder.
 
@@ -63,7 +75,11 @@ The random seeds of the original run are kept, so the same results are obtained,
 
 `Rscript tests/test_reproduction.R --models` refits parts of the analysis and compares them with the original run, which takes about 15 minutes.
 
+</div>
+
 ## Repository contents
+
+<div align="justify">
 
 | Folder | Content |
 |---|---|
@@ -89,7 +105,11 @@ The random seeds of the original run are kept, so the same results are obtained,
 
 The original scripts also tested each candidate model on the validation plants. The selection steps in the code use only the calibration folds and the article does not report those results, so they are not included.
 
+</div>
+
 ## Citation and license
+
+<div align="justify">
 
 Please cite the article above when using this code or these data. Citation details are in `CITATION.cff`.
 
@@ -97,7 +117,11 @@ The code is released under the [MIT license](LICENSE). The data are released und
 
 Parts of the code, tests and documentation of this repository were reorganized with the help of an AI coding assistant (Claude, by Anthropic). The author directed the work, checked the results and is responsible for the content.
 
+</div>
+
 ## Differences from the published article
+
+<div align="justify">
 
 Preparing this repository showed that some descriptions in the article differ from the code that produced its results. The values in Tables 1, A1 and A2 are not affected, except where noted.
 

@@ -1,6 +1,6 @@
-<div align="justify">
-
 # Data
+
+<div align="justify">
 
 These are the data of the greenhouse experiment used in the article, limited to what the article analyses. They are shared under the [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) license. The MIT license of the code does not cover them. Please cite the article when using them.
 
@@ -15,7 +15,11 @@ These are the data of the greenhouse experiment used in the article, limited to 
 
 R reads the compressed `.xz` file directly, for example with `read.csv()`.
 
+</div>
+
 ## Columns
+
+<div align="justify">
 
 | Column | Meaning |
 |---|---|
@@ -30,7 +34,11 @@ R reads the compressed `.xz` file directly, for example with `read.csv()`.
 | `severity` | Lesion length divided by plant height, in % |
 | `split` | `calibration` or `validation` |
 
+</div>
+
 ## Before using the tables
+
+<div align="justify">
 
 - **Plants.** The spectra cover the 77 plants assessed before visual symptoms (12 to 60 hours). `severity.csv` also includes the 40 plants assessed at 30 and 40 days, which are used only in Figure A1.
 - **Excluded plants.** Three inoculated plants of the resistant clone (39, 57 and 97) are not included, as described in the article: their disease development was abnormally high, which is suspected to result from genetic material leakage during propagation.
